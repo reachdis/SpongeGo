@@ -4,4 +4,4 @@ SpongeGo 海绵围棋
 
 使用方式
 ==
-下载所有内容，打开index.html以运行
+点击绿色Code按钮箭头下的Download in ZIP，下载所有内容，解压后直接打开index.html以运行
