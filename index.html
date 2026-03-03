@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海绵围棋 SpongeGo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>海绵围棋 SpongeGo</h1>
+
+        <div class="info-panel">
+            <div class="info-item">
+                <div class="info-label">当前玩家</div>
+                <div class="info-value" id="current-player">黑方</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">提子统计</div>
+                <div class="info-value" id="captured">黑方提子: 0 | 白方提子: 0</div>
+            </div>
+        </div>
+
+        <div class="board-container">
+            <canvas id="go-board"></canvas>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="board-shape">棋盘大小：</label>
+                <select id="board-shape">
+                    <option value="square_19x19" selected>19×19</option>
+                    <option value="square_21x21_center_hole">21×21 (中心9×9挖孔)</option>
+                    <option value="custom">自定义</option>
+                </select>
+            </div>
+
+            <div class="control-group" id="custom-size-group" style="display: none;">
+                <label for="custom-size">自定义大小 (5-30)：</label>
+                <input type="number" id="custom-size" min="5" max="30" value="15">
+            </div>
+
+            <div class="control-group">
+                <label for="center-hole-size">中心挖孔大小：<span id="center-hole-value">0</span></label>
+                <input type="range" id="center-hole-size" min="0" max="15" value="0" step="1">
+            </div>
+
+            <div class="control-group">
+                <label for="random-holes-toggle">
+                    <input type="checkbox" id="random-holes-toggle">
+                    启用随机挖孔
+                </label>
+                <label for="hole-density" id="density-label" style="opacity: 0.5;">
+                    随机挖孔密度：<span id="density-value">0</span>%
+                </label>
+                <input type="range" id="hole-density" min="0" max="30" value="0" step="1" disabled>
+            </div>
+
+            <div class="button-group">
+                <button id="apply-btn">应用设置</button>
+                <button id="restart-btn">重新开始</button>
+                <button id="undo-btn">悔棋</button>
+                <button id="pass-btn">虚着</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/shapes.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
